@@ -1,0 +1,519 @@
+Script started, file is 18030068cw2part1.
+/home/david> mkdir -p Cricket/{India,Australia,England,Pakistan,Bangladesh}
+/home/david>tree Cricket
+Cricket
+├── Australia
+├── Bangladesh
+├── England
+├── India
+└── Pakistan
+5 directories, 0 files
+
+/home/david>cd Cricket/India
+/home/david/Cricket/India>pwd
+/home/david/Cricket/India
+/home/david/Cricket/India>touch file1 file2
+/home/david/Cricket/India>cd ..
+/home/david/Cricket>rm -i India/file1
+rm: remove regular empty file 'India/file1'? y
+/home/david/Cricket>rm -i India/file2
+rm: remove regular empty file 'India/file2'? y
+/home/david/Cricket>rmdir India
+/home/david/Cricket>tree
+.
+├── Australia
+├── Bangladesh
+├── England
+└── Pakistan
+4 directories, 0 files
+
+/home/david/Cricket>echo -e "Cricket is a bat and ball game played between two teams. \n14<(2+2)"
+Cricket is a bat and ball game played between two teams.
+14<(2+2)
+/home/david/Cricket>pwd
+/home/david/Cricket
+/home/david/Cricket>cd Australia
+
+/home/david/Cricket/Australia>pwd; cd; pwd
+/home/david/Cricket/Australia
+/home/david
+/home/david>echo "In this line, three commands are exectuted serially which was seperated by semi colon. The first front pwd command prints the full path name of Australia and the semicolon indicates that there is another command to be executed so the cd command executed which changes the current directory from Australia to home and the last pwd shows the full path name of home directory"
+In this line, three commands are exectuted serially which was seperated by semi colon. The first front pwd command prints the full path name of Australia and the semicolon indicates that there is another command to be executed so the cd command executed which changes the current directory from Australia to home and the last pwd shows the full path name of home directory.
+/home/david>cd Cricket/Australia
+/home/david/Cricket/Australia>pwd; cd ..; pwd; cd ..; pwd
+/home/david/Cricket/Australia
+/home/david/Cricket
+/home/david
+/home/david>echo “The first front pwd prints the full path name of Australia and the cd command executes which changes the current directory to the parent;s which os from Australia to Cricket. Then the full path name of Cricket directory is displayed by the middle pwd then the working directory is again changedc from Cricket to home by cd .. command and at the last, the pwd command prints the fucll path name of home directory.”
+The first front pwd prints the full path name of Australia and the cd command executes which changes the current directory to the parent;s which os from Australia to Cricket. Then the full path name of Cricket directory is displayed by the middle pwd then the working directory is again changedc from Cricket to home by cd .. command and at the last, the pwd command prints the fucll path name of home directory.
+/home/david>cd; pwd
+/home/david
+
+/home/david>ls
+18030068cw2part1 Cricket
+
+/home/david>ls -a
+.  ..  18030068cw2part1  .bash_history  .bash_logout  .bashrc  Cricket  .local  .profile
+ 
+/home/david>ls -al
+total 20
+drwxr-xr-x 1 david david  4096 May 29 08:08 .
+drwxr-xr-x 1 root  root   4096 Apr 10 14:53 ..
+-rw-rw-rw- 1 david david 12288 May 29 08:31 18030068cw2part1
+-rw------- 1 david david  7272 May 29 08:09 .bash_history
+-rw-r--r-- 1 david david   220 Apr 10 14:53 .bash_logout
+-rw-r--r-- 1 david david  3662 Apr 10 15:47 .bashrc
+drwxrwxrwx 1 david david  4096 May 29 08:11 Cricket
+drwxrwxrwx 1 david david  4096 Apr 10 15:38 .local
+-rw-r--r-- 1 david david   807 Apr 10 14:53 .profile
+
+/home/david>cd; pwd; cd Cricket; pwd
+/home/david
+/home/david/Cricket
+
+/home/david/Cricket>ls -R
+.:
+Australia  Bangladesh  England  Pakistan
+./Australia:
+./Bangladesh:
+./England:
+./Pakistan:
+
+/home/david/Cricket>cd Australia
+/home/david/Cricket/Australia>cat > testX
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+
+
+/home/david/Cricket/Australia>cat > testY
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+/home/david/Cricket/Australia>cat > testZ
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+
+
+/home/david/Cricket/Australia>cat testX
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+/home/david/Cricket/Australia>cat testY
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+/home/david/Cricket/Australia>cat testZ
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+
+
+/home/david/Cricket/Australia>cp testX testY testZ ../Bangladesh
+/home/david/Cricket/Australia>cd ../Bangladesh
+/home/david/Cricket/Bangladesh>ls
+testX  testY  testZ
+
+/home/david/Cricket/Bangladesh>cd ../Australia
+/home/david/Cricket/Australia>cat testX testY testZ
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+
+/home/david/Cricket/Australia>cat testX testY testZ > testResult
+
+/home/david/Cricket/Australia>cat testX - testY >> testResult
+Hhhhh Iiiii
+JJJJJ
+
+/home/david/Cricket/Australia>cat testResult
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+Hhhhhh Iiiii
+JJJJJ
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+
+/home/david/Cricket/Australia>cat test[XYZ]
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+
+
+/home/david/Cricket/Australia>ls -l
+total 0
+-rw-rw-rw- 1 david david 488 May 29 08:30 testResult
+-rw-rw-rw- 1 david david  97 Mar 29 08:28 testX
+-rw-rw-rw- 1 david david  97 Mar 29 08:28 testY
+-rw-rw-rw- 1 david david  97 Mar 29 08:29 testZ
+/home/david/Cricket/Australia>chmod 000 testX
+/home/david/Cricket/Australia>ls -l testX
+---------- 1 david david 97 May 29 08:28 testX
+/home/david/Cricket/Australia>cat testX
+cat: testX: Permission denied
+/home/david/Cricket/Australia>cat >> testX
+bash: testX: Permission denied
+/home/david/Cricket/Australia>chmod 600 testX
+/home/david/Cricket/Australia>ls -l testX
+-rw------- 1 david david 97 May 29 08:28 testX
+/home/david/Cricket/Australia>cat testX
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+/home/david/Cricket/Australia>cat >> testX
+Hhhhh Iiiii
+JJJJJ
+
+/home/david/Cricket/Australia>cd ..
+/home/david/Cricket>ls -l Australia
+total 0
+-rw-rw-rw- 1 david david 488 Mar 29 08:30 testResult
+-rw------- 1 david david  97 May 29 08:31 testX
+-rw-rw-rw- 1 david david  97 May 29 08:28 testY
+-rw-rw-rw- 1 david david  97 May 29 08:29 testZ
+/home/david/Cricket>chmod 000 Australia
+/home/david/Cricket>ls -l Australia
+ls: cannot open directory 'Australia': Permission denied
+/home/david/Cricket>cat Australia/testX
+cat: Australia/testX: Permission denied
+/home/david/Cricket>touch Australia/file1
+touch: cannot touch 'Australia/file1': Permission denied
+/home/david/Cricket>ls Australia
+ls: cannot open directory 'Australia': Permission denied
+/home/david/Cricket>chmod 700 Australia
+/home/david/Cricket>ls -l Australia
+total 0
+-rw-rw-rw- 1 david david 488 May 29 08:30 testResult
+-rw------- 1 david david  97 May 29 08:31 testX
+-rw-rw-rw- 1 david david  97 May 29 08:28 testY
+-rw-rw-rw- 1 david david  97 May 29 08:29 testZ
+/home/david/Cricket>cat Australia/testX
+aaabb Aaaaa
+AAAAA
+bbbcc Bbbbb
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+Hhhhh Iiiii
+JJJJJ
+/home/david/Cricket>touch Australia/file1
+/home/david/Cricket>ls Australia
+file1  testResult  testX  testY  testZ
+
+ 
+/home/david/Cricket>cd Bangladesh
+/home/david/Cricket/Bangladesh>grep bb testX
+aaabb Aaaaa
+bbbcc Bbbbb
+
+
+/home/david/Cricket/Bangladesh>grep -v bb testX
+AAAAA
+BBBBB
+ff–ff Ccccc
+CCCCC
+cccdd Ddddd
+DDDDD
+ 
+/home/david/Cricket/Bangladesh>grep -n bb testX
+1:aaabb Aaaaa
+3:bbbcc Bbbbb
+
+/home/david/Cricket/Bangladesh>grep -l bb *
+testX
+testY
+testZ
+
+
+/home/david/Cricket/Bangladesh>grep -i BB *
+testX:aaabb Aaaaa
+testX:bbbcc Bbbbb
+testX:BBBBB
+testY:aaabb Aaaaa
+testY:bbbcc Bbbbb
+testY:BBBBB
+testZ:aaabb Aaaaa
+testZ:bbbcc Bbbbb
+testZ:BBBBB
+
+/home/david/Cricket/Bangladesh>grep -c bb *
+testX:2
+testY:2
+testZ:2
+
+/home/david/Cricket/Bangladesh>grep '^A' *
+testX:AAAAA
+testY:AAAAA
+testZ:AAAAA
+
+/home/david/Cricket/Bangladesh>grep -n '^' testX
+1:aaabb Aaaaa
+2:AAAAA
+3:bbbcc Bbbbb
+4:BBBBB
+5:ff–ff Ccccc
+6:CCCCC
+7:cccdd Ddddd
+8:DDDDD
+
+/home/david/Cricket/Bangladesh>alias lsaR='ls -aR'
+/home/david/Cricket/Bangladesh>alias lsa='ls -a'
+/home/david/Cricket/Bangladesh>alias
+alias ls='ls --color=auto'
+alias lsa='ls -a'
+alias lsaR='ls -aR'
+/home/david/Cricket/Bangladesh>cd ../../
+/home/david>lsaR
+.:
+.  ..  18030068cw2part1  .bash_history  .bash_logout  .bashrc  Cricket  .local  .profile
+
+./Cricket:
+.  ..  Australia  Bangladesh  England  Pakistan
+
+./Cricket/Australia:
+.  ..  file1  testResult  testX  testY  testZ
+
+./Cricket/Bangladesh:
+.  ..  testX  testY  testZ
+
+./Cricket/England:
+.  ..
+
+./Cricket/Pakistan:
+.  ..
+
+./.local:
+.  ..  share
+
+./.local/share:
+.  ..  nano
+
+./.local/share/nano:
+.  ..
+/home/david>lsa
+.  ..  18030068cw2part1  .bash_history  .bash_logout  .bashrc  Cricket  .local  .profile
+
+
+/home/david>unalias lsaR lsa
+/home/david>alias
+alias ls='ls --color=auto'
+
+/home/david>nano .bashrc
+/home/david>. .bashrc
+david@kiro:~$ PS1='$PWD>'
+/home/david>lsa
+.  ..  18030068cw2part1  .bash_history  .bash_logout  .bashrc  Cricket  .local  .profile
+/home/david>lsaR
+.:
+.  ..  18030068cw2part1  .bash_history  .bash_logout  .bashrc  Cricket  .local  .profile
+
+./Cricket:
+.  ..  Australia  Bangladesh  England  Pakistan
+
+./Cricket/Australia:
+.  ..  file1  testResult  testX  testY  testZ
+
+./Cricket/Bangladesh:
+.  ..  testX  testY  testZ
+
+./Cricket/England:
+.  ..
+
+./Cricket/Pakistan:
+.  ..
+
+./.local:
+.  ..  share
+
+./.local/share:
+.  ..  nano
+
+./.local/share/nano:
+.  ..
+
+
+
+/home/david>nano .bashrc
+/home/david>. .bashrc
+david@LAPTOP-V4V9RJSJ:~$PS1='$PWD>'
+
+/home/david>noAllf
+9
+
+/home/david>noAsubsir
+56
+
+
+/home/david>noAcs
+0
+
+/home/david>fc -l
+277      cd ../../
+278      lsaR
+279      lsa
+280      unalias lsaR lsa
+281      alias
+282      nano .bashrc
+283      . .bashrc
+284      PS1='$PWD>'
+285      lsa
+286      lsaR
+287      nano .bashrc
+288      . .bashrc
+289      PS1='$PWD>'
+290      noAllf
+291      noAsubsir
+290      noAcs
+
+
+/home/david>fc -e- -8
+lsaR
+.:
+.  ..  18030068cw2part1  .bash_history  .bash_logout  .bashrc  Cricket  .local  .profile
+
+./Cricket:
+.  ..  Australia  Bangladesh  England  Pakistan
+
+./Cricket/Australia:
+.  ..  file1  testResult  testX  testY  testZ
+
+./Cricket/Bangladesh:
+.  ..  testX  testY  testZ
+
+./Cricket/England:
+.  ..
+
+./Cricket/Pakistan:
+.  ..
+
+./.local:
+.  ..  share
+
+./.local/share:
+.  ..  nano
+
+./.local/share/nano:
+.  ..
+
+/home/david>fc -e- c
+cd ../../
+/> cd home/david
+/home/david> exit
+exit
+script done, file is 18030068cw2part1

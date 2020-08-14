@@ -1,0 +1,268 @@
+#! /bin/bash
+key=david
+bestteam=NEP
+name=$1
+number=$2
+extra=$3
+
+#this function is used to ask the user to repeat the current program of not.
+function askuser () {
+read -p "Do you want to re-run the program[Yes/No]=" ans
+
+if [ -z "$ans" ] #-z is used to check he given string is null or not.
+then
+echo "Error: The is no any value/Empty value"
+	askuser
+elif [[ $ans =~ ^[0-9]+$ ]]
+then
+	echo "Error: There is no numberic value"
+askuser
+elif [[ $ans =~ ^[a-zA-Z]+$ ]]
+then
+	if [ ${ans^^} == "YES" ]
+	then
+	main
+	elif [ ${ans^^} == "NO" ]
+	then
+	echo "Thank you for your time"
+	exit
+	else
+	echo "Error: There is a mistake in the spelling"
+	askuser
+	fi
+elif [[ $ans =~ ^[0-9a-zA-Z]+$ ]]
+then
+echo "Error: The are both alphabetic and numberic values"
+askuser
+else
+echo "Thank you"
+exit
+fi
+}
+
+#this function is for displaying the information of a particular player
+function playersymbol () {
+
+PS5="Please type the provided code="
+select names in $val1 $val2 $val3
+do
+case $names in
+"PK") cat paras
+	askuser
+;;
+
+"VK") cat virat
+	askuser
+;;
+
+"DW") cat david
+	askuser
+;;
+
+"BS") echo "Sorry the file is not avaiable. Please select antoher."
+	main
+;;
+"RT") echo "Sorry the file is not avaiable.Pleasse select another"
+	main
+;;
+*) echo "Error: Please select either number 1 , 2 or 3"
+
+esac
+
+done
+
+}
+
+# this function is made to ask the user to type the three option codes
+function playerchoice () {
+
+echo "Enter the code of three players out of five and seperate it with a space="
+
+read -a player
+val1="${player[0]^^}"
+val2="${player[1]^^}"
+val3="${player[2]^^}"
+val4="${player[3]}"
+
+if ! [ -z "$val4" ]
+then
+echo "Please try again"
+playerchoice
+fi
+
+if [[ "$val1" == "$val2" || "$val2" == "$val3" || "$val3" == "$val1" ]]
+then
+	echo "Error: Enter appropriate values"
+	playerchoice
+
+fi
+case $val1 in
+	"PK")
+	;;
+	"VK")
+	;;
+	"DW")
+	;;
+	"BS")
+	;;
+	"RT")
+	;;
+	*)
+	echo "Error: Type appropraite symbol number"
+	playerchoice
+esac
+case $val2 in
+	"PK")
+	;;
+	"VK")
+	;;
+	"DW")
+	;;
+	"BS")
+	;;
+	"RT")
+	;;
+	*)
+	echo "Error:Type the appropriate symbol"
+	playerchoice
+	;;
+esac
+case $val3 in 
+	"PK")
+	;;
+	"VK")
+	;;
+	"DW")
+	;;
+	"BS")
+	;;
+	"RT")
+	;;
+	*)
+	echo "Error: Type the appropriate symbol"
+	playerchoice
+	;;
+esac
+
+	echo
+	echo "These are the players symbol which have been chosen"
+	echo "*************************************************"
+	for var in "${player[@]^^}"
+
+	do
+	echo $var
+	done
+	echo "************************************************"
+	echo
+	sleep 1
+	playersymbol
+
+
+}
+
+#this function is to display the player name with their respective codes.
+function players () {
+
+echo "******************************************************"
+echo -e "Players code\t\tPlayer Name"
+echo -e "PK\t\t\tParas Khadka"
+echo -e "VK\t\t\tVirat Kholi"
+echo -e "DW\t\t\tDavid Warner"
+echo -e "BS\t\t\tBen Strokes"
+echo -e "RT\t\t\tRoss Taylor"
+echo "*****************************************************"
+playerchoice
+}
+
+
+# this function is for guesssing the best cricket team among them
+
+function main () {
+
+echo "***************************************************"
+echo -e "Country code\t\tCountry"
+echo -e "AUS\t\t\tAustralia"
+echo -e "BAN\t\t\tBangladesh"
+echo -e "NEP\t\t\tNepal"
+echo -e "IND\t\t\tIndia"
+echo -e "ENG\t\t\tEngland"
+echo "***************************************************"
+
+while true
+do
+read -p "Can you guess which is the best cricket team. Enter your choices country code =" choice
+if [ ${choice^^} == $bestteam ]
+then
+	echo "The choice was correct. Nepal is currently the beast team of cricket and have participated in the world cup"
+	echo
+	echo "Re-reunning the program"
+	sleep 1
+	echo
+	players
+break
+else
+	echo "The choice was incorrect. Please choose another code"
+	main
+
+fi
+done
+
+}
+
+# this function is used to askk the user for their current secret key and verified the inputed value.
+function input () {
+x=0
+while [ $x -ne 5 ]
+do
+read -sp "Please enter the secret key =" access
+if [ $key == $access ]
+then 
+	echo
+	echo "*********************************************"
+	echo "Welcome to the program"
+	echo "YOur id number is = $number."
+	echo "your name is = $name."
+	echo "your current date and time is $(date)"
+	echo "*********************************************"
+
+	echo
+	echo "The game of guessing has begun."
+	sleep 1
+	echo
+	main
+
+break;
+else
+	echo
+	echo "Error: The secret key is incorrect."
+	(( x++ ))
+fi
+done
+
+}
+
+#this function is used when name and id is not provided
+function without_input () {
+read -sp "Please enter your current secret key = " access
+if [ $key == $access ]
+then
+	echo "The entered name and ID us empty. Please try again"
+else
+	echo "the key you have entered is invalid."
+fi
+
+}
+
+#this is to check if the name and ID which is provided is given sorrectly or not and it also checks whether the value is empty or not.
+if [ -z "$name" -a -z "$number" ] #-z is used to check the value of string which is null or not
+then
+without_input
+elif ! [[ $number =~ ^[0-9]+$ ]]
+then
+	echo "Please enter correct ID."
+elif ! [ -z $extra]
+then
+	echo "You have enter inappropriate values. Please enter again."
+else
+	input
+fi
